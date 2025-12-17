@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    ul li a {
+        color: blue;
+        text-decoration: none;
+    }
+
+    ul li small {
+        color: gray;
+        font-size: 0.8rem;
+        margin-left: 5px;
+    }
+
+</style>
+
+<ul>
+    {% for tag in tags %}
+        <li>
+            {{ tag.id }}
+            <a href="{% url 'tag' %}">
+                <span>#</span>{{ tag.name }}
+            </a>
+            <small>{{ tag.timestamp|date:"d M Y H:i" }}</small>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock content %}
